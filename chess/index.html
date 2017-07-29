@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `chess` crate.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, chess">
+
+    <title>chess - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc mod">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'>Crate chess</p><div class="block items"><ul><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li><li><a href="#constants">Constants</a></li><li><a href="#functions">Functions</a></li></ul></div><p class='location'></p><script>window.sidebarCurrent = {name: 'chess', ty: 'mod', relpath: '../'};</script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Crate <a class="mod" href=''>chess</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../src/chess/lib.rs.html#1-45' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'>
+<h1 id='rust-chess-library' class='section-header'><a href='#rust-chess-library'>Rust Chess Library</a></h1>
+<p>This is a chess move generation library for rust.  It is designed to be fast, so that it can be
+used in a chess engine or UI without performance issues.</p>
+</div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.BitBoard.html"
+                                  title='struct chess::BitBoard'>BitBoard</a></td>
+                           <td class='docblock-short'>
+                                <p>A good old-fashioned bitboard
+You <em>do</em> have access to the actual value, but you are probably better off
+using the implemented operators to work with this object.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.Board.html"
+                                  title='struct chess::Board'>Board</a></td>
+                           <td class='docblock-short'>
+                                <p>A representation of a chess board.  That&#39;s why you&#39;re here, right?</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.CacheTable.html"
+                                  title='struct chess::CacheTable'>CacheTable</a></td>
+                           <td class='docblock-short'>
+                                <p>Store a cache of entries, each with an associated hash.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.ChessMove.html"
+                                  title='struct chess::ChessMove'>ChessMove</a></td>
+                           <td class='docblock-short'>
+                                <p>Represent a ChessMove in memory</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.MoveGen.html"
+                                  title='struct chess::MoveGen'>MoveGen</a></td>
+                           <td class='docblock-short'>
+                                <p>The move generation iterator</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.Square.html"
+                                  title='struct chess::Square'>Square</a></td>
+                           <td class='docblock-short'>
+                                <p>Represent a square on the chess board</p>
+                           </td>
+                       </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.BoardStatus.html"
+                                  title='enum chess::BoardStatus'>BoardStatus</a></td>
+                           <td class='docblock-short'>
+                                <p>What is the status of this game?</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.CastleRights.html"
+                                  title='enum chess::CastleRights'>CastleRights</a></td>
+                           <td class='docblock-short'>
+                                <p>What castle rights does a particular player have?</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.Color.html"
+                                  title='enum chess::Color'>Color</a></td>
+                           <td class='docblock-short'>
+                                <p>Represent a color.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.File.html"
+                                  title='enum chess::File'>File</a></td>
+                           <td class='docblock-short'>
+                                <p>Describe a file (column) on a chess board</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.Piece.html"
+                                  title='enum chess::Piece'>Piece</a></td>
+                           <td class='docblock-short'>
+                                <p>Represent a chess piece as a very simple enum</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.Rank.html"
+                                  title='enum chess::Rank'>Rank</a></td>
+                           <td class='docblock-short'>
+                                <p>Describe a rank (row) on a chess board</p>
+                           </td>
+                       </tr></table><h2 id='constants' class='section-header'><a href="#constants">Constants</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.ALL_CASTLE_RIGHTS.html"
+                                  title='constant chess::ALL_CASTLE_RIGHTS'>ALL_CASTLE_RIGHTS</a></td>
+                           <td class='docblock-short'>
+                                <p>Enumerate all castle rights.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.ALL_COLORS.html"
+                                  title='constant chess::ALL_COLORS'>ALL_COLORS</a></td>
+                           <td class='docblock-short'>
+                                <p>List all colors</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.ALL_FILES.html"
+                                  title='constant chess::ALL_FILES'>ALL_FILES</a></td>
+                           <td class='docblock-short'>
+                                <p>Enumerate all files</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.ALL_PIECES.html"
+                                  title='constant chess::ALL_PIECES'>ALL_PIECES</a></td>
+                           <td class='docblock-short'>
+                                <p>An array representing each piece type, in order of ascending value.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.ALL_RANKS.html"
+                                  title='constant chess::ALL_RANKS'>ALL_RANKS</a></td>
+                           <td class='docblock-short'>
+                                <p>Enumerate all ranks</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.ALL_SQUARES.html"
+                                  title='constant chess::ALL_SQUARES'>ALL_SQUARES</a></td>
+                           <td class='docblock-short'>
+                                <p>A list of every square on the chessboard.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.EDGES.html"
+                                  title='constant chess::EDGES'>EDGES</a></td>
+                           <td class='docblock-short'>
+                                <p>What are all the edge squares on the <code>BitBoard</code>?</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.EMPTY.html"
+                                  title='constant chess::EMPTY'>EMPTY</a></td>
+                           <td class='docblock-short'>
+                                <p>An empty bitboard</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.NUM_CASTLE_RIGHTS.html"
+                                  title='constant chess::NUM_CASTLE_RIGHTS'>NUM_CASTLE_RIGHTS</a></td>
+                           <td class='docblock-short'>
+                                <p>How many different types of <code>CastleRights</code> are there?</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.NUM_COLORS.html"
+                                  title='constant chess::NUM_COLORS'>NUM_COLORS</a></td>
+                           <td class='docblock-short'>
+                                <p>How many colors are there?</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.NUM_FILES.html"
+                                  title='constant chess::NUM_FILES'>NUM_FILES</a></td>
+                           <td class='docblock-short'>
+                                <p>How many files are there?</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.NUM_PIECES.html"
+                                  title='constant chess::NUM_PIECES'>NUM_PIECES</a></td>
+                           <td class='docblock-short'>
+                                <p>How many piece types are there?</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.NUM_PROMOTION_PIECES.html"
+                                  title='constant chess::NUM_PROMOTION_PIECES'>NUM_PROMOTION_PIECES</a></td>
+                           <td class='docblock-short'>
+                                <p>How many ways can I promote?</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.NUM_RANKS.html"
+                                  title='constant chess::NUM_RANKS'>NUM_RANKS</a></td>
+                           <td class='docblock-short'>
+                                <p>How many ranks are there?</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.NUM_SQUARES.html"
+                                  title='constant chess::NUM_SQUARES'>NUM_SQUARES</a></td>
+                           <td class='docblock-short'>
+                                <p>How many squares are there?</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.PROMOTION_PIECES.html"
+                                  title='constant chess::PROMOTION_PIECES'>PROMOTION_PIECES</a></td>
+                           <td class='docblock-short'>
+                                <p>What pieces can I promote to?</p>
+                           </td>
+                       </tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.between.html"
+                                  title='fn chess::between'>between</a></td>
+                           <td class='docblock-short'>
+                                <p>Get a line between these two squares, not including the squares themselves.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.construct.html"
+                                  title='fn chess::construct'>construct</a></td>
+                           <td class='docblock-short'>
+                                <p>This is now a no-op.  It does not need to be called anymore.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.get_adjacent_files.html"
+                                  title='fn chess::get_adjacent_files'>get_adjacent_files</a></td>
+                           <td class='docblock-short'>
+                                <p>Get a <code>BitBoard</code> that represents the squares on the 1 or 2 files next to this file.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.get_bishop_moves.html"
+                                  title='fn chess::get_bishop_moves'>get_bishop_moves</a></td>
+                           <td class='docblock-short'>
+                                <p>Get the moves for a bishop on a particular square, given blockers blocking my movement.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.get_bishop_rays.html"
+                                  title='fn chess::get_bishop_rays'>get_bishop_rays</a></td>
+                           <td class='docblock-short'>
+                                <p>Get the rays for a bishop on a particular square.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.get_file.html"
+                                  title='fn chess::get_file'>get_file</a></td>
+                           <td class='docblock-short'>
+                                <p>Get a <code>BitBoard</code> that represents all the squares on a particular file.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.get_king_moves.html"
+                                  title='fn chess::get_king_moves'>get_king_moves</a></td>
+                           <td class='docblock-short'>
+                                <p>Get the king moves for a particular square.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.get_knight_moves.html"
+                                  title='fn chess::get_knight_moves'>get_knight_moves</a></td>
+                           <td class='docblock-short'>
+                                <p>Get the knight moves for a particular square.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.get_pawn_attacks.html"
+                                  title='fn chess::get_pawn_attacks'>get_pawn_attacks</a></td>
+                           <td class='docblock-short'>
+                                <p>Get the pawn capture move for a particular square, given the pawn&#39;s color and the potential
+victims</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.get_pawn_moves.html"
+                                  title='fn chess::get_pawn_moves'>get_pawn_moves</a></td>
+                           <td class='docblock-short'>
+                                <p>Get all the pawn moves for a particular square, given the pawn&#39;s color and the potential
+blocking pieces and victims.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.get_pawn_quiets.html"
+                                  title='fn chess::get_pawn_quiets'>get_pawn_quiets</a></td>
+                           <td class='docblock-short'>
+                                <p>Get the quiet pawn moves (non-captures) for a particular square, given the pawn&#39;s color and
+the potential blocking pieces.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.get_rank.html"
+                                  title='fn chess::get_rank'>get_rank</a></td>
+                           <td class='docblock-short'>
+                                <p>Get a <code>BitBoard</code> that represents all the squares on a particular rank.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.get_rook_moves.html"
+                                  title='fn chess::get_rook_moves'>get_rook_moves</a></td>
+                           <td class='docblock-short'>
+                                <p>Get the moves for a rook on a particular square, given blockers blocking my movement.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.get_rook_rays.html"
+                                  title='fn chess::get_rook_rays'>get_rook_rays</a></td>
+                           <td class='docblock-short'>
+                                <p>Get the rays for a rook on a particular square.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.line.html"
+                                  title='fn chess::line'>line</a></td>
+                           <td class='docblock-short'>
+                                <p>Get a line (extending to infinity, which in chess is 8 squares), given two squares.
+This line does extend past the squares.</p>
+                           </td>
+                       </tr></table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "chess";
+    </script>
+    <script src="../main.js"></script>
+    <script defer src="../search-index.js"></script>
+</body>
+</html>

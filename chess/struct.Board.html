@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Board` struct in crate `chess`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Board">
+
+    <title>chess::Board - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc struct">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'>Struct Board</p><div class="block items"><ul><li><a href="#methods">Methods</a></li><li><a href="#implementations">Trait Implementations</a></li></ul></div><p class='location'><a href='index.html'>chess</a></p><script>window.sidebarCurrent = {name: 'Board', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='index.html'>chess</a>::<wbr><a class="struct" href=''>Board</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../src/chess/board.rs.html#17-28' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct Board { /* fields omitted */ }</pre><div class='docblock'><p>A representation of a chess board.  That&#39;s why you&#39;re here, right?</p>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl <a class="struct" href="../chess/struct.Board.html" title="struct chess::Board">Board</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/chess/board.rs.html#265-1365' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.new' class="method"><span id='new.v' class='invisible'><code>fn <a href='#method.new' class='fnname'>new</a>() -&gt; <a class="struct" href="../chess/struct.Board.html" title="struct chess::Board">Board</a></code></span></h4>
+<div class='docblock'><p>Construct a new <code>Board</code> that is completely empty.
+Note: This does NOT give you the initial position.  Just a blank slate.</p>
+</div><h4 id='method.from_fen' class="method"><span id='from_fen.v' class='invisible'><code>fn <a href='#method.from_fen' class='fnname'>from_fen</a>(fen: <a class="struct" href="https://doc.rust-lang.org/nightly/collections/string/struct.String.html" title="struct collections::string::String">String</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="../chess/struct.Board.html" title="struct chess::Board">Board</a>&gt;</code></span></h4>
+<div class='docblock'><p>Construct a board from a FEN string.</p>
+</div><h4 id='method.status' class="method"><span id='status.v' class='invisible'><code>fn <a href='#method.status' class='fnname'>status</a>(&amp;self) -&gt; <a class="enum" href="../chess/enum.BoardStatus.html" title="enum chess::BoardStatus">BoardStatus</a></code></span></h4>
+<div class='docblock'><p>Is this game Ongoing, is it Stalemate, or is it Checkmate?</p>
+</div><h4 id='method.combined' class="method"><span id='combined.v' class='invisible'><code>fn <a href='#method.combined' class='fnname'>combined</a>(&amp;self) -&gt; <a class="struct" href="../chess/struct.BitBoard.html" title="struct chess::BitBoard">BitBoard</a></code></span></h4>
+<div class='docblock'><p>Grab the &quot;combined&quot; <code>BitBoard</code>.  This is a <code>BitBoard</code> with every piece.</p>
+</div><h4 id='method.color_combined' class="method"><span id='color_combined.v' class='invisible'><code>fn <a href='#method.color_combined' class='fnname'>color_combined</a>(&amp;self, color: <a class="enum" href="../chess/enum.Color.html" title="enum chess::Color">Color</a>) -&gt; <a class="struct" href="../chess/struct.BitBoard.html" title="struct chess::BitBoard">BitBoard</a></code></span></h4>
+<div class='docblock'><p>Grab the &quot;color combined&quot; <code>BitBoard</code>.  This is a <code>BitBoard</code> with every piece of a particular
+color.</p>
+</div><h4 id='method.king_square' class="method"><span id='king_square.v' class='invisible'><code>fn <a href='#method.king_square' class='fnname'>king_square</a>(&amp;self, color: <a class="enum" href="../chess/enum.Color.html" title="enum chess::Color">Color</a>) -&gt; <a class="struct" href="../chess/struct.Square.html" title="struct chess::Square">Square</a></code></span></h4>
+<div class='docblock'><p>Give me the <code>Square</code> the <code>color</code> king is on.</p>
+</div><h4 id='method.pieces' class="method"><span id='pieces.v' class='invisible'><code>fn <a href='#method.pieces' class='fnname'>pieces</a>(&amp;self, piece: <a class="enum" href="../chess/enum.Piece.html" title="enum chess::Piece">Piece</a>) -&gt; <a class="struct" href="../chess/struct.BitBoard.html" title="struct chess::BitBoard">BitBoard</a></code></span></h4>
+<div class='docblock'><p>Grab the &quot;pieces&quot; <code>BitBoard</code>.  This is a <code>BitBoard</code> with every piece of a particular type.</p>
+</div><h4 id='method.castle_rights' class="method"><span id='castle_rights.v' class='invisible'><code>fn <a href='#method.castle_rights' class='fnname'>castle_rights</a>(&amp;self, color: <a class="enum" href="../chess/enum.Color.html" title="enum chess::Color">Color</a>) -&gt; <a class="enum" href="../chess/enum.CastleRights.html" title="enum chess::CastleRights">CastleRights</a></code></span></h4>
+<div class='docblock'><p>Grab the <code>CastleRights</code> for a particular side.</p>
+</div><h4 id='method.add_castle_rights' class="method"><span id='add_castle_rights.v' class='invisible'><code>fn <a href='#method.add_castle_rights' class='fnname'>add_castle_rights</a>(&amp;mut self, color: <a class="enum" href="../chess/enum.Color.html" title="enum chess::Color">Color</a>, add: <a class="enum" href="../chess/enum.CastleRights.html" title="enum chess::CastleRights">CastleRights</a>)</code></span></h4>
+<div class='docblock'><p>Add castle rights for a particular side.</p>
+</div><h4 id='method.remove_castle_rights' class="method"><span id='remove_castle_rights.v' class='invisible'><code>fn <a href='#method.remove_castle_rights' class='fnname'>remove_castle_rights</a>(&amp;mut self, color: <a class="enum" href="../chess/enum.Color.html" title="enum chess::Color">Color</a>, remove: <a class="enum" href="../chess/enum.CastleRights.html" title="enum chess::CastleRights">CastleRights</a>)</code></span></h4>
+<div class='docblock'><p>Remove castle rights for a particular side.</p>
+</div><h4 id='method.side_to_move' class="method"><span id='side_to_move.v' class='invisible'><code>fn <a href='#method.side_to_move' class='fnname'>side_to_move</a>(&amp;self) -&gt; <a class="enum" href="../chess/enum.Color.html" title="enum chess::Color">Color</a></code></span></h4>
+<div class='docblock'><p>Who&#39;s turn is it?</p>
+</div><h4 id='method.my_castle_rights' class="method"><span id='my_castle_rights.v' class='invisible'><code>fn <a href='#method.my_castle_rights' class='fnname'>my_castle_rights</a>(&amp;self) -&gt; <a class="enum" href="../chess/enum.CastleRights.html" title="enum chess::CastleRights">CastleRights</a></code></span></h4>
+<div class='docblock'><p>Grab my <code>CastleRights</code>.</p>
+</div><h4 id='method.add_my_castle_rights' class="method"><span id='add_my_castle_rights.v' class='invisible'><code>fn <a href='#method.add_my_castle_rights' class='fnname'>add_my_castle_rights</a>(&amp;mut self, add: <a class="enum" href="../chess/enum.CastleRights.html" title="enum chess::CastleRights">CastleRights</a>)</code></span></h4>
+<div class='docblock'><p>Add to my <code>CastleRights</code>.</p>
+</div><h4 id='method.remove_my_castle_rights' class="method"><span id='remove_my_castle_rights.v' class='invisible'><code>fn <a href='#method.remove_my_castle_rights' class='fnname'>remove_my_castle_rights</a>(&amp;mut self, remove: <a class="enum" href="../chess/enum.CastleRights.html" title="enum chess::CastleRights">CastleRights</a>)</code></span></h4>
+<div class='docblock'><p>Remove some of my <code>CastleRights</code>.</p>
+</div><h4 id='method.their_castle_rights' class="method"><span id='their_castle_rights.v' class='invisible'><code>fn <a href='#method.their_castle_rights' class='fnname'>their_castle_rights</a>(&amp;self) -&gt; <a class="enum" href="../chess/enum.CastleRights.html" title="enum chess::CastleRights">CastleRights</a></code></span></h4>
+<div class='docblock'><p>My opponents <code>CastleRights</code>.</p>
+</div><h4 id='method.add_their_castle_rights' class="method"><span id='add_their_castle_rights.v' class='invisible'><code>fn <a href='#method.add_their_castle_rights' class='fnname'>add_their_castle_rights</a>(&amp;mut self, add: <a class="enum" href="../chess/enum.CastleRights.html" title="enum chess::CastleRights">CastleRights</a>)</code></span></h4>
+<div class='docblock'><p>Add to my opponents <code>CastleRights</code>.</p>
+</div><h4 id='method.remove_their_castle_rights' class="method"><span id='remove_their_castle_rights.v' class='invisible'><code>fn <a href='#method.remove_their_castle_rights' class='fnname'>remove_their_castle_rights</a>(&amp;mut self, remove: <a class="enum" href="../chess/enum.CastleRights.html" title="enum chess::CastleRights">CastleRights</a>)</code></span></h4>
+<div class='docblock'><p>Remove some of my opponents <code>CastleRights</code>.</p>
+</div><h4 id='method.set_piece' class="method"><span id='set_piece.v' class='invisible'><code>fn <a href='#method.set_piece' class='fnname'>set_piece</a>(&amp;self, piece: <a class="enum" href="../chess/enum.Piece.html" title="enum chess::Piece">Piece</a>, color: <a class="enum" href="../chess/enum.Color.html" title="enum chess::Color">Color</a>, square: <a class="struct" href="../chess/struct.Square.html" title="struct chess::Square">Square</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="../chess/struct.Board.html" title="struct chess::Board">Board</a>&gt;</code></span></h4>
+<div class='docblock'><p>For a chess UI: set a piece on a particular square.</p>
+</div><h4 id='method.clear_square' class="method"><span id='clear_square.v' class='invisible'><code>fn <a href='#method.clear_square' class='fnname'>clear_square</a>(&amp;self, square: <a class="struct" href="../chess/struct.Square.html" title="struct chess::Square">Square</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="../chess/struct.Board.html" title="struct chess::Board">Board</a>&gt;</code></span></h4>
+<div class='docblock'><p>For a chess UI: clear a particular square.</p>
+</div><h4 id='method.null_move' class="method"><span id='null_move.v' class='invisible'><code>fn <a href='#method.null_move' class='fnname'>null_move</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="../chess/struct.Board.html" title="struct chess::Board">Board</a>&gt;</code></span></h4>
+<div class='docblock'><p>Switch the color of the player without actually making a move.</p>
+</div><h4 id='method.is_sane' class="method"><span id='is_sane.v' class='invisible'><code>fn <a href='#method.is_sane' class='fnname'>is_sane</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h4>
+<div class='docblock'><p>Does this board &quot;make sense&quot;?
+Do all the pieces make sense, do the bitboards combine correctly, etc?
+This is for sanity checking.</p>
+</div><h4 id='method.get_hash' class="method"><span id='get_hash.v' class='invisible'><code>fn <a href='#method.get_hash' class='fnname'>get_hash</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a></code></span></h4>
+<div class='docblock'><p>Get a hash of the board.</p>
+</div><h4 id='method.get_pawn_hash' class="method"><span id='get_pawn_hash.v' class='invisible'><code>fn <a href='#method.get_pawn_hash' class='fnname'>get_pawn_hash</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a></code></span></h4>
+<div class='docblock'><p>Get a pawn hash of the board (a hash that only changes on color change and pawn moves).</p>
+</div><h4 id='method.piece_on' class="method"><span id='piece_on.v' class='invisible'><code>fn <a href='#method.piece_on' class='fnname'>piece_on</a>(&amp;self, square: <a class="struct" href="../chess/struct.Square.html" title="struct chess::Square">Square</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="enum" href="../chess/enum.Piece.html" title="enum chess::Piece">Piece</a>&gt;</code></span></h4>
+<div class='docblock'><p>What piece is on a particular <code>Square</code>?  Is there even one?</p>
+</div><h4 id='method.enumerate_moves' class="method"><span id='enumerate_moves.v' class='invisible'><code>fn <a href='#method.enumerate_moves' class='fnname'>enumerate_moves</a>(&amp;self, moves: &amp;mut <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a><a class="struct" href="../chess/struct.ChessMove.html" title="struct chess::ChessMove">ChessMove</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 256]</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a></code></span></h4>
+<div class='docblock'><p>Give me all the legal moves for this board.</p>
+
+<p>Note: You may want to build a <code>MoveGen</code> structure to iterate over
+      the moves instead.</p>
+</div><h4 id='method.en_passant' class="method"><span id='en_passant.v' class='invisible'><code>fn <a href='#method.en_passant' class='fnname'>en_passant</a>(self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="../chess/struct.Square.html" title="struct chess::Square">Square</a>&gt;</code></span></h4>
+<div class='docblock'><p>Give me the en_passant square, if it exists.</p>
+</div><h4 id='method.legal' class="method"><span id='legal.v' class='invisible'><code>fn <a href='#method.legal' class='fnname'>legal</a>(&amp;self, m: <a class="struct" href="../chess/struct.ChessMove.html" title="struct chess::ChessMove">ChessMove</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h4>
+<div class='docblock'><p>Is a particular move legal?</p>
+</div><h4 id='method.legal_quick' class="method"><span id='legal_quick.v' class='invisible'><code>fn <a href='#method.legal_quick' class='fnname'>legal_quick</a>(&amp;self, chess_move: <a class="struct" href="../chess/struct.ChessMove.html" title="struct chess::ChessMove">ChessMove</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h4>
+<div class='docblock'><p>This function checks the legality <em>only for moves generated by <code>MoveGen</code></em>.</p>
+
+<p>Calling this function for moves not generated by <code>MoveGen</code> will result in possibly
+incorrect results, and making that move on the <code>Board</code> will result in undefined behavior.
+This function may panic! if these rules are not followed.</p>
+
+<p>If you are validating a move from a user, you should call the .legal() function.</p>
+</div><h4 id='method.make_move' class="method"><span id='make_move.v' class='invisible'><code>fn <a href='#method.make_move' class='fnname'>make_move</a>(&amp;self, m: <a class="struct" href="../chess/struct.ChessMove.html" title="struct chess::ChessMove">ChessMove</a>) -&gt; <a class="struct" href="../chess/struct.Board.html" title="struct chess::Board">Board</a></code></span></h4>
+<div class='docblock'><p>Make a chess move.</p>
+
+<p>panic!() if king is captured.</p>
+</div><h4 id='method.perft' class="method"><span id='perft.v' class='invisible'><code>fn <a href='#method.perft' class='fnname'>perft</a>(&amp;self, depth: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a></code></span></h4>
+<div class='docblock'><p>Run a perft-test.</p>
+</div><h4 id='method.perft_brute_force' class="method"><span id='perft_brute_force.v' class='invisible'><code>fn <a href='#method.perft_brute_force' class='fnname'>perft_brute_force</a>(&amp;self, depth: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a></code></span></h4>
+<div class='docblock'><p>Run a perft-test using brute force move generation.</p>
+</div><h4 id='method.perft_cache' class="method"><span id='perft_cache.v' class='invisible'><code>fn <a href='#method.perft_cache' class='fnname'>perft_cache</a>(&amp;self, depth: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a>, cache_size_per_depth: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a></code></span></h4>
+<div class='docblock'><p>Run a perft test with a cache table.</p>
+</div><h4 id='method.pinned' class="method"><span id='pinned.v' class='invisible'><code>fn <a href='#method.pinned' class='fnname'>pinned</a>(&amp;self) -&gt; <a class="struct" href="../chess/struct.BitBoard.html" title="struct chess::BitBoard">BitBoard</a></code></span></h4>
+<div class='docblock'><p>Give me the <code>BitBoard</code> of my pinned pieces.</p>
+</div><h4 id='method.checkers' class="method"><span id='checkers.v' class='invisible'><code>fn <a href='#method.checkers' class='fnname'>checkers</a>(&amp;self) -&gt; <a class="struct" href="../chess/struct.BitBoard.html" title="struct chess::BitBoard">BitBoard</a></code></span></h4>
+<div class='docblock'><p>Give me the <code>Bitboard</code> of the pieces putting me in check.</p>
+</div><h4 id='method.legal_king_move' class="method"><span id='legal_king_move.v' class='invisible'><code>fn <a href='#method.legal_king_move' class='fnname'>legal_king_move</a>(&amp;self, dest: <a class="struct" href="../chess/struct.Square.html" title="struct chess::Square">Square</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h4>
+<div class='docblock'><p>Is a particular king move legal?</p>
+</div><h4 id='method.legal_ep_move' class="method"><span id='legal_ep_move.v' class='invisible'><code>fn <a href='#method.legal_ep_move' class='fnname'>legal_ep_move</a>(&amp;self, source: <a class="struct" href="../chess/struct.Square.html" title="struct chess::Square">Square</a>, dest: <a class="struct" href="../chess/struct.Square.html" title="struct chess::Square">Square</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h4>
+<div class='docblock'><p>Is a particular en-passant capture legal?</p>
+</div><h4 id='method.perft_test' class="method"><span id='perft_test.v' class='invisible'><code>fn <a href='#method.perft_test' class='fnname'>perft_test</a>(fen: <a class="struct" href="https://doc.rust-lang.org/nightly/collections/string/struct.String.html" title="struct collections::string::String">String</a>, depth: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a>, result: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a>)</code></span></h4>
+<div class='docblock'><p>Run every type of perft test, and panic! if the leaf-node count of any version is not equal
+to <code>result</code>.</p>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html" title="trait core::marker::Copy">Copy</a> for <a class="struct" href="../chess/struct.Board.html" title="struct chess::Board">Board</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/chess/board.rs.html#16' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'></div><h3 class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html" title="trait core::clone::Clone">Clone</a> for <a class="struct" href="../chess/struct.Board.html" title="struct chess::Board">Board</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/chess/board.rs.html#16' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.clone' class="method"><span id='clone.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class="struct" href="../chess/struct.Board.html" title="struct chess::Board">Board</a></code></span></h4>
+<div class='docblock'><p>Returns a copy of the value. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">Read more</a></p>
+</div><h4 id='method.clone_from' class="method"><span id='clone_from.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div></span></h4>
+<div class='docblock'><p>Performs copy-assignment from <code>source</code>. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from">Read more</a></p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html" title="trait core::fmt::Display">Display</a> for <a class="struct" href="../chess/struct.Board.html" title="struct chess::Board">Board</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/chess/board.rs.html#1502-1543' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class="method"><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, f: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span></h4>
+<div class='docblock'><p>Formats the value using the given formatter. <a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html#tymethod.fmt">Read more</a></p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "chess";
+    </script>
+    <script src="../main.js"></script>
+    <script defer src="../search-index.js"></script>
+</body>
+</html>
